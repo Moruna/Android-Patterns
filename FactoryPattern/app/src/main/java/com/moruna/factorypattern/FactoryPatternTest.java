@@ -28,21 +28,4 @@ public class FactoryPatternTest extends AppCompatActivity {
 
     }
 
-    public class ToyCreator{
-        private static final String TAG = "ToyCreator";
-
-        public static <T extends IToy> IToy createToy(Class<T> clazz) {
-            if (clazz == null){
-                throw new IllegalArgumentException("argument must not be null");
-            }
-            try {
-                IToy toy = clazz.newInstance();
-                Log.e(TAG, "buy a/an " + toy.getName()+" for " + toy.price() + " yuan, and then ---");
-                toy.play();
-                return toy;
-            } catch (Exception e) {
-                throw new UnknownError(e.getMessage());
-            }
-        }
-    }
 }
